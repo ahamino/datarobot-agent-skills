@@ -38,6 +38,8 @@ The endpoint accepts these narrowing filters (all optional):
 
 The artifact created for a C2W flow is `draft` with `imageUri: "placeholder:latest"` — the build replaces it. The new fields versus a bring-your-own-image artifact:
 
+> **Casing note.** In the artifact spec the Execution Environment is referenced with **camelCase** keys — `executionEnvironmentId` / `executionEnvironmentVersionId` inside `imageBuildConfig.dockerfile` (below). If the same values are instead declared in a `[tool.datarobot]` table in `pyproject.toml`, that table uses **snake_case** keys (`execution_environment_id`, `execution_environment_version_id`, `entrypoint`). The two spellings are not interchangeable — a mis-cased key is silently ignored, so match the casing to where you're writing it.
+
 ```json
 {
   "name": "<artifact-name>",
